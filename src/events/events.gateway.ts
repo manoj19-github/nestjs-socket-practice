@@ -31,7 +31,9 @@ export class EventsGateway
   @SubscribeMessage('message')
   handleMessage(client: any, payload: any): string {
     this.logger.log(` Message received from  client id  : ${client.id} `);
+    this.io.emit('receive_message', 'manoj santra');
     return 'Hello world!';
+    
   }
   sentEvent(client: any, payload: any) {
     setInterval(() => {
